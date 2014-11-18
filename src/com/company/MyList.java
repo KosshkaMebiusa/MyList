@@ -3,7 +3,7 @@ package com.company;
 /**
  * Created by root on 17.11.14.
  */
-public class MyList<E> {
+public class MyList<E> implements List<E>{
 
     private class ListItem{
         public E item;
@@ -28,21 +28,24 @@ public class MyList<E> {
             head = new ListItem(item, null, null);
         }
         else {
-            cur = head;
+            for (cur=head; cur!=null; cur=cur.next){}
+/*            cur = head;
             while (cur.next!=null){
                 cur = cur.next;
-            }
+            }*/
             cur.next = new ListItem(item, null, cur);
         }
     }
 
     public int size(){
         int n = 0;
-        cur = head;
+        for (cur=head; cur!=null; cur=cur.next){ n++; }
+
+/*        cur = head;
         while (cur!=null){
             cur = cur.next;
             n++;
-        }
+        }*/
         return n;
     }
 
@@ -55,22 +58,20 @@ public class MyList<E> {
             throw new Exception("DeleteFromEmptyList");
         }
         else {
-            cur = head;
+            for (cur=head; cur!=null; cur=cur.next){}
+/*            cur = head;
             while (cur.next!=null){
                 cur = cur.next;
-            }
+            }*/
             cur.next = null;
         }
     }
 
     public boolean contains(E key){
         cur = head;
-        while (cur!=null){
+        for (cur=head; cur!=null; cur=cur.next){
             if (cur.item.equals(key)){
                 return true;
-            }
-            else {
-                cur = cur.next;
             }
         }
         return false;
