@@ -6,7 +6,7 @@ package com.company;
 public class MyList<E> implements List<E>{
 
     private class ListItem{
-        public E item;
+        public E item;;
         public ListItem next;
         public ListItem previous;
         ListItem(E i, ListItem n, ListItem p){
