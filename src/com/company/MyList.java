@@ -3,6 +3,8 @@ package com.company;
 /**
  * Created by root on 17.11.14.
  */
+
+
 public class MyList<E> implements List<E>{
 
     private class ListItem{
