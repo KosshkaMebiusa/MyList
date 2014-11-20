@@ -5,7 +5,7 @@ package com.company;
  */
 public interface List<E> {
 
-    public void add();
+    public void add(E item);
     public int size();
     public boolean isEmpty();
     public void delete() throws Exception;
